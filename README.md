@@ -17,7 +17,7 @@ pip install munkres==1.1.4
 other dependent on your base model e.g. OSTrack
 
 # Get result from NeighborTrack with OSTrack
-in space of NeighborTrack/trackers/ostrack/ , please remember change dataset and model's root in NeighborTrack/trackers/ostrack/lib/test/evaluation/local.py. please seen user's guided in OSTrack:https://github.com/botaoye/OSTrack Set project paths
+in space of NeighborTrack/trackers/ostrack/ , please remember change dataset and model's root in `NeighborTrack/trackers/ostrack/lib/test/evaluation/local.py`. please seen user's guided in OSTrack:https://github.com/botaoye/OSTrack Set project paths
 
 ## LaSOT,GOT10K
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
