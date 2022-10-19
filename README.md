@@ -90,7 +90,8 @@ initialize the tracking method. init state xywh img or something else. please do
   shold init outside of initialize, e.g. `__init__()`, initialize means change target or init target in video, not init model.
 `return []`
 ## def track_neighbor(self,image,th):
-this function need to get the CAND from your own SOT tracker, you can get CANDs from score >max(C)*0.7 or whatever, watch different of "track_neighbor" and "track", do not update position,center,template,...,etc. in track_neighbor if any code will change answer of call track_neighbor when input same image and xywh, please put it on update_center. 
+this function need to get the CAND from your own SOT tracker, you can get CANDs from score > max(C)*0.7 or whatever. Watch the different of "track_neighbor" and "track". 1."track"have some code need update tracker's state,  Do Not Update That in "track_neighbor", e.g. update position, center, template, ..., if any code will change answer of call track_neighbor when input same image and xywh, please put it on update_center. 2. Output CAND and it's score by SOT tracker, we didn't need features of CAND. To create CAND you can follow CAND = score > max(C)*0.7, but not only one way can get CAND, for example, the top 10 score BBOX are also fine. Dont forgot much CAND much slower. 
+ 
 
 `return xywh, score, neighborxywh, neighborscore`
 #### xywh 
@@ -102,7 +103,7 @@ CAND_xywh in cell == `[[(C1)x,y,w,h],[(C2)x,y,w,h],...]`
 #### neighbor score
 CAND score in cell == `[(c1)score,(c2)score,...]`
 ## def update_center(self,xywh):
-update teplate, DIMP, center, learningrate, train model,..., etc. please put it on this block. 
+update teplate, DIMP, center, learningrate, train model,..., etc. please put it on this block. For example ncc tracker need update its center of tracker, please do not update in track_neighbor, because it will change the answer of track. our method will update it after get that frame's final answer (xywh).
 `return []`
 
 ## init and use NeighborTracker:
@@ -125,7 +126,7 @@ for frame_num, frame_path in enumerate(seq.frames[1:], start=1):
     out = {"target_bbox": location}
 ```
 
-tracker and invtracker is original ostrack, you can change it by yours.
+tracker and invtracker is original ostrack, you can change it by your SOT tracker.
 region = `[x,y,w,h]`
-image = image by your model input, for ostrack, it is `numpy.array(img[h,w,3(RGB])`
+image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
 
