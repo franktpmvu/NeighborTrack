@@ -1,7 +1,7 @@
 # NeighborTrack
 Single Object Tracking post processing method by using cycle consistency and neighbor  
 
-some code are from OSTrack,Votchallenge,Ocean,TransT thanks this  alot.
+some code are from OSTrack,Votchallenge,Ocean,TransT thanks these projects alot.
 
 OSTrack:https://github.com/botaoye/OSTrack
 TransT:https://github.com/chenxin-dlut/TransT
