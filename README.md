@@ -37,8 +37,12 @@ sh test.sh
 #or
 #lasot example
 python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset lasot --threads 24 --num_gpus 8 --neighbor 1
+#python tracking/analysis_results.py 
+
 #got-10K example
 python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset got10k_test --threads 24 --num_gpus 8 --neighbor 1 
+#python tracking/analysis_results.py 
+
 ```
 ## votchallenge
 |VOT2022-ST|EAO|A|R|
