@@ -81,7 +81,7 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 # How to use NeighborTrack in your own SOT tracker:
 please see the neighbortrack.py there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`). Remenber ,the tracker should be have 2 indepandent model forward/inverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
 
-to seen ostrack with our method, please seen NeighborTrack/trackers/ostrack/lib/test/evaluation/tracker.py ```class NeighborTracker(Tracker):```
+to seen our method based on ostrack, please seen NeighborTrack/trackers/ostrack/lib/test/evaluation/tracker.py ```class NeighborTracker(Tracker):```
 
 
 
