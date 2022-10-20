@@ -127,6 +127,6 @@ for frame_num, frame_path in enumerate(seq.frames[1:], start=1):
 ```
 
 tracker and invtracker is original ostrack, you can change it by your SOT tracker.
-region = `[x,y,w,h]`
+region = `[x,y,w,h]`, 
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
 
