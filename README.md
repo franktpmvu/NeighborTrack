@@ -1,5 +1,5 @@
 # NeighborTrack
-Single Object Tracking post processing method by using cycle consistency and neighbor  
+Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
 
 some code are from OSTrack,Votchallenge,Ocean,TransT thanks these projects alot.
 
@@ -10,9 +10,9 @@ Ocean:https://github.com/JudasDie/SOTS/tree/master
 
 KalmanFilter are from https://github.com/RahmadSadli/2-D-Kalman-Filter
 SoftNMS are from https://github.com/bharatsingh430/soft-nms
-## demo
+## Demo videos
 https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47
-## Dependent 
+## python Dependent 
 ```shell
 pip install munkres==1.1.4
 ```
