@@ -15,14 +15,16 @@ SoftNMS are from https://github.com/bharatsingh430/soft-nms
 
 ## Demo videos
 https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47
-## mdoels and results
+## Models and source results
 https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link
 
-## python Dependent 
+## Python Dependent 
 ```shell
 pip install munkres==1.1.4
 ```
-other dependent on your base model e.g. OSTrack
+Other dependencies depend on your base model, e.g. OSTrack:
+https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh
+
 
 # Get result from NeighborTrack with OSTrack
 Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's root in https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py. please seen user's guided in OSTrack:https://github.com/botaoye/OSTrack Set project paths
