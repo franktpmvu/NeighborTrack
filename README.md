@@ -34,8 +34,8 @@ in space of NeighborTrack/trackers/ostrack/ , please remember change dataset and
 |---|---|---|---|---|
 |OSTrack384| 0.739|	0.836|	0.722|	7.00 fps|
 |OSTrack384_NeighborTrack| 0.757|	0.857|	0.733|	2.99 fps|
-|OSTrack384_gottrain| 0.741|	0.839|	0.715|  3.88 fps|
-|OSTrack384_gottrain_NeighborTrack| 0.745|	0.842|	0.715|	4.07 fps|
+|OSTrack384_gottrainonly| 0.741|	0.839|	0.715|  3.88 fps|
+|OSTrack384_gottrainonly_NeighborTrack| 0.745|	0.842|	0.715|	4.07 fps|
 
 
 fps are not sure, server cpu&gpu always full ...
