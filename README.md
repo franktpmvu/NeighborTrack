@@ -66,9 +66,9 @@ python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset go
 others vot2020 vot2021 please seen paper
 
 ```shell
-vot test ostrackNeighborgit
-vot evaluate --workspace ./vot2022st ostrackNeighborgit
-vot analysis --workspace vot2022st ostrackNeighborgit
+vot test ostrackNeighbor
+vot evaluate --workspace ./vot2022st ostrackNeighbor
+vot analysis --workspace vot2022st ostrackNeighbor
 ```
 please seen detail from NeighborTrack/trackers.ini, NeighborTrack/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py 
 
