@@ -72,8 +72,6 @@ python tracking/test.py ostrack vitb_384_mae_ce_32x4_got10k_ep100_neighbor --dat
 |Normal Cross Correlation tracker(NCC)| 0.102|	0.564|	0.208|
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
 
-others vot2020 vot2021 please seen paper
-
 ```shell
 vot test ostrackNeighbor
 vot test ostrackNeighborAR
@@ -97,14 +95,6 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 ```
 
 # How to use NeighborTrack in your own SOT tracker:
-please see the https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14 there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`). after add functions are seems like https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
-
-Remenber ,the tracker should be have 2 indepandent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
-
-## other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
-
-## more details:
-https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md
 
 ## init and use NeighborTracker:
 ### init
@@ -114,6 +104,20 @@ https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e
 
 
 tracker and invtracker is original ostrack, you can change it by your SOT tracker.
+
 region = `[x,y,w,h]`,(x y = top left) 
+
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
+
+there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`).
+Please see: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14  
+After add functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
+
+Remenber ,the tracker should be have 2 indepandent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
+
+## other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
+
+## more details:
+https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md
+
 
