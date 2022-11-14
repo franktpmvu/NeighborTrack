@@ -67,8 +67,12 @@ others vot2020 vot2021 please seen paper
 
 ```shell
 vot test ostrackNeighbor
+vot test ostrackNeighborAR
 vot evaluate --workspace ./vot2022st ostrackNeighbor
 vot analysis --workspace vot2022st ostrackNeighbor
+
+vot evaluate --workspace ./vot2021 ostrackNeighborAR
+vot analysis --workspace vot2021 ostrackNeighborAR
 ```
 please seen detail from NeighborTrack/trackers.ini, NeighborTrack/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py 
 
