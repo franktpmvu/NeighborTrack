@@ -15,6 +15,9 @@ SoftNMS are from https://github.com/bharatsingh430/soft-nms
 
 ## Demo videos
 https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47
+## mdoels and results
+https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link
+
 ## python Dependent 
 ```shell
 pip install munkres==1.1.4
@@ -22,7 +25,7 @@ pip install munkres==1.1.4
 other dependent on your base model e.g. OSTrack
 
 # Get result from NeighborTrack with OSTrack
-in space of NeighborTrack/trackers/ostrack/ , please remember change dataset and model's root in `NeighborTrack/trackers/ostrack/lib/test/evaluation/local.py`. please seen user's guided in OSTrack:https://github.com/botaoye/OSTrack Set project paths
+Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's root in `NeighborTrack/trackers/ostrack/lib/test/evaluation/local.py`. please seen user's guided in OSTrack:https://github.com/botaoye/OSTrack Set project paths
 
 ## LaSOT,GOT10K
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
@@ -38,8 +41,9 @@ in space of NeighborTrack/trackers/ostrack/ , please remember change dataset and
 |OSTrack384_gottrainonly_NeighborTrack| 0.745|	0.842|	0.715|	4.07 fps|
 
 
-fps are not sure, server cpu&gpu always full ...
+
 ```shell 
+cd /your_path/trackers/ostrack/
 sh test.sh
 #or
 #lasot example
@@ -47,8 +51,9 @@ python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset la
 #python tracking/analysis_results.py 
 
 #got-10K example
-python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset got10k_test --threads 24 --num_gpus 8 --neighbor 1 
-#python tracking/analysis_results.py 
+python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
+#to use got-10K train_from_got10K_only
+python tracking/test.py ostrack vitb_384_mae_ce_32x4_got10k_ep100_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
 
 ```
 ## votchallenge
@@ -80,7 +85,7 @@ please seen detail from NeighborTrack/trackers.ini, NeighborTrack/trackers/ostra
 
 if you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen Votchallenge:https://github.com/votchallenge/toolkit
 
-## in your own video
+## In your own video
 ```shell 
 sh video_test.sh
 # or
@@ -90,54 +95,23 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 ```
 
 # How to use NeighborTrack in your own SOT tracker:
-please see the neighbortrack.py there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`). Remenber ,the tracker should be have 2 indepandent model forward/inverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
+please see the https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14 there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`). after add functions are seems like https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
 
-to seen our method based on ostrack, please seen NeighborTrack/trackers/ostrack/lib/test/evaluation/tracker.py ```class NeighborTracker(Tracker):```
+Remenber ,the tracker should be have 2 indepandent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
 
+## other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
 
-
-## def initialize(self,image,init_info):
-initialize the tracking method. init state xywh img or something else. Depends on what kind of initialization your SOT model needs. Please don't init cuda model in this block, cuda model 
-  shold init outside of `def initialize:`, e.g. `__init__()`, initialize means change target or init target in video, not init model.
-`return []`
-## def track_neighbor(self,image,th):
-this function need to get the CAND from your own SOT tracker, you can get CANDs from score > max(C)*0.7 or whatever. Watch the different of "track_neighbor" and "track". 1."track"have some code need update tracker's state,  Do Not Update That in "track_neighbor", e.g. update position, center, template, ..., For example, ncc tracker need update the tracking center of image, please do not update it in `def track_neighbor:`, because update tracking center of image will changed the answer of next call `track_neighbor`. if any code will change answer of call `track_neighbor` when input same image and xywh, please put it in `def update_center:` 2. Output CAND and it's score by SOT tracker, we didn't need features of CAND. To create CAND you can follow CAND = score > max(C)*0.7, but not only one way can get CAND, for example, the top 10 score BBOX are also fine. Dont forgot: Much CAND Much Slower. 
- 
-
-`return xywh, score, neighborxywh, neighborscore`
-#### xywh 
-trackers 'original' answer xywh == `[x,y,w,h]`
-#### score 
-trackers 'original' answer score == `score`
-#### neighbor xywh
-CAND_xywh in cell == `[[(C1)x,y,w,h],[(C2)x,y,w,h],...]`
-#### neighbor score
-CAND score in cell == `[(C1)score,(C2)score,...]`
-## def update_center(self,xywh):
-update teplate, DIMP, center, learningrate, train model,..., etc. please put it on this block. Our method will update it after get that frame's final answer (xywh).
-`return []`
+## more details:
+https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md
 
 ## init and use NeighborTracker:
+### init
+https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L63
+### get tracking answer
+https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L70
 
-```python
-ntracker = neighbortrack(tracker,image,region[:2],region[2:],invtracker=invtracker)
-for frame_num, frame_path in enumerate(seq.frames[1:], start=1):
-    image = self._read_image(frame_path)
-    start_time = time.time()
-    info = seq.frame_info(frame_num)
-    info['previous_output'] = prev_output
-    if len(seq.ground_truth_rect) > 1:
-        info['gt_bbox'] = seq.ground_truth_rect[frame_num]
-                
-                
-    #out = tracker.track(image, info)
-        
-    state = ntracker._neighbor_track(image)
-    location = xy_wh_2_rect(state['target_pos'], state['target_sz'])
-    out = {"target_bbox": location}
-```
 
 tracker and invtracker is original ostrack, you can change it by your SOT tracker.
-region = `[x,y,w,h]`, 
+region = `[x,y,w,h]`,(x y = top left) 
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
 
