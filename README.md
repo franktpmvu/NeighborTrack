@@ -1,4 +1,8 @@
 # NeighborTrack
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=neighbortrack-improving-single-object)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=neighbortrack-improving-single-object)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=neighbortrack-improving-single-object)
+
 The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
