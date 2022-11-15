@@ -7,23 +7,19 @@ The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite
 
 Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
 
-some code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. thanks these projects alot.
+some SOT model code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. thanks these projects alot.
 
-[**OSTrack:**](https://github.com/botaoye/OSTrack)
+website:
+[**OSTrack**](https://github.com/botaoye/OSTrack), 
+[**TransT**](https://github.com/chenxin-dlut/TransT), 
+[**Votchallenge**](https://github.com/votchallenge/toolkit), 
+[**Ocean**](https://github.com/JudasDie/SOTS/tree/master), 
+[**pytracking**](https://github.com/visionml/pytracking), 
+[**Mixformer**](https://github.com/MCG-NJU/MixFormer), 
 
-[**TransT:**](https://github.com/chenxin-dlut/TransT)
+[**KalmanFilter implement**](https://github.com/RahmadSadli/2-D-Kalman-Filter)
 
-[**Votchallenge:**](https://github.com/votchallenge/toolkit)
-
-[**Ocean:**](https://github.com/JudasDie/SOTS/tree/master)
-
-[**pytracking:**](https://github.com/visionml/pytracking)
-
-[**Mixformer**](https://github.com/MCG-NJU/MixFormer)
-
-[**KalmanFilter implement:**](https://github.com/RahmadSadli/2-D-Kalman-Filter)
-
-[**SoftNMS implement:**](https://github.com/bharatsingh430/soft-nms)
+[**SoftNMS implement**](https://github.com/bharatsingh430/soft-nms)
 
 ## [**Demo videos**](https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47)
 ## [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
