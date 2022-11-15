@@ -29,7 +29,6 @@ class OSTRACK(object):
         '''Alpha-Refine'''
         refine_model_name = 'ARnet_seg_mask_ep0040.pth.tar'
         
-        NeighborTrack/trackers/ostrack/pytracking/networks
         project_path = '/data/NeighborTrack/trackers/ostrack/'
         refine_root = os.path.join(project_path, '/data/NeighborTrack/trackers/ostrack/pytracking/networks/')
         #project_path = '/data/MixFormer/external/AR/'
