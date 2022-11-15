@@ -54,7 +54,7 @@ pip install tikzplotlib
 echo ""
 echo ""
 echo "****************** Installing thop tool for FLOPs and Params computing ******************"
-pip install thop==0.1.1
+pip install thop==0.1.1.post2209072238
 
 echo ""
 echo ""
