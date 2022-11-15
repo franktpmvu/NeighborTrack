@@ -106,5 +106,12 @@ apt-get install ffmpeg libsm6 libxext6  -y
 
 echo "****************** Installing munkres ******************"
 pip install munkres==1.1.4
+echo "****************** Installing shapely ******************"
+
+pip install shapely
+echo "****************** Installing vot challenge toolkit ******************"
+pip install git+https://github.com/votchallenge/vot-toolkit-python
+echo "****************** setting of workspace ******************"
+python tracking/create_default_local_file.py --workspace_dir . --data_dir ./data --save_dir ./output
 
 echo "****************** Installation complete! ******************"
