@@ -7,7 +7,7 @@ The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite
 
 Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
 
-some code are from OSTrack,Votchallenge,Ocean,TransT,pytracking thanks these projects alot.
+some code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. thanks these projects alot.
 
 [**OSTrack:**](https://github.com/botaoye/OSTrack)
 
@@ -18,6 +18,8 @@ some code are from OSTrack,Votchallenge,Ocean,TransT,pytracking thanks these pro
 [**Ocean:**](https://github.com/JudasDie/SOTS/tree/master)
 
 [**pytracking:**](https://github.com/visionml/pytracking)
+
+[**Mixformer**](https://github.com/MCG-NJU/MixFormer)
 
 [**KalmanFilter implement:**](https://github.com/RahmadSadli/2-D-Kalman-Filter)
 
