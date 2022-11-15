@@ -12,7 +12,7 @@ put "ARnet_seg_mask_ep0040.pth.tar" on path  NeighborTrack/trackers/ostrack/pytr
 OSTrack model are from :
 https://github.com/botaoye/OSTrack
 
----------lasot----------
+# LaSOT
 
 put "OSTrack_ep0300.pth.tar" on both path  
 
@@ -22,7 +22,7 @@ and
 
 NeighborTrack/trackers/ostrack/output/checkpoints/train/ostrack/vitb_384_mae_ce_32x4_ep300/
 
----------got10k_only_train_got10k----------
+# GOT-10K(OSTrack only training on got10k train - set)
 
 put "OSTrack_ep0100.pth.tar" on both path  
 
@@ -32,6 +32,6 @@ and
 
 NeighborTrack/trackers/ostrack/output/checkpoints/train/ostrack/vitb_384_mae_ce_32x4_got10k_ep100/
 
-
+# Update dataset path
 please update NeighborTrack/trackers/ostrack/lib/test/evaluation/local.py
-guideline: https://github.com/botaoye/OSTrack
+[**Guideline**](https://github.com/botaoye/OSTrack)
