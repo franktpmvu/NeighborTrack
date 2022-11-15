@@ -24,8 +24,8 @@ some code are from OSTrack,Votchallenge,Ocean,TransT,pytracking thanks these pro
 [**SoftNMS implement:**](https://github.com/bharatsingh430/soft-nms)
 
 ## [**Demo videos**](https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47)
-## [**Models and source results**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
-
+## [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
+[**More information for model paths**](https://github.com/franktpmvu/NeighborTrack/blob/main/model_download_setting.md)
 ## Python Environment 
 ```shell
 pip install munkres==1.1.4
