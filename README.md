@@ -31,7 +31,7 @@ Other dependencies depend on your base model, e.g. [**OSTrack:**](https://github
 
 # Get result from NeighborTrack with OSTrack
 Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py)
-Please seen [**OSTrack user's guide**](https://github.com/botaoye/OSTrack)to set project paths
+Please seen [**OSTrack user's guide**](https://github.com/botaoye/OSTrack) to set project paths
 
 ## LaSOT,GOT10K,TrackingNet (baseline from OSTrack github code)
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
