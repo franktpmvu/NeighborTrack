@@ -10,7 +10,7 @@ prj_path = os.path.join(os.path.dirname(__file__), '..')
 if prj_path not in sys.path:
     sys.path.append(prj_path)
 
-from OSTrack.lib.test.evaluation import Tracker
+from lib.test.evaluation import Tracker
 
 from NeighborTrack.neighbortrack import neighbortrack
 from NeighborTrack.NTutils.utils import xy_wh_2_rect
@@ -28,9 +28,12 @@ class OSTRACK(object):
         '''create tracker'''
         '''Alpha-Refine'''
         refine_model_name = 'ARnet_seg_mask_ep0040.pth.tar'
-
-        project_path = '/data/MixFormer/external/AR/'
-        refine_root = os.path.join(project_path, 'ltr/checkpoints/ltr/ARcm_seg/')
+        
+        NeighborTrack/trackers/ostrack/pytracking/networks
+        project_path = '/data/NeighborTrack/trackers/ostrack/'
+        refine_root = os.path.join(project_path, '/data/NeighborTrack/trackers/ostrack/pytracking/networks/')
+        #project_path = '/data/MixFormer/external/AR/'
+        #refine_root = os.path.join(project_path, 'ltr/checkpoints/ltr/ARcm_seg/')
         refine_path = os.path.join(refine_root, refine_model_name)
         '''2020.4.25 input size: 384x384'''
         print(refine_path)
