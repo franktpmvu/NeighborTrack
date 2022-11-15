@@ -45,10 +45,10 @@ Please seen [**OSTrack user's guide**](https://github.com/botaoye/OSTrack) to se
 			
 |[**GOT-10K**](http://got-10k.aitestunion.com/leaderboard)|AO|SR0.50|SR0.75|Hz|
 |---|---|---|---|---|
-|OSTrack384| 0.739|	0.836|	0.722|	7.00 fps|
-|OSTrack384_NeighborTrack| 0.757|	0.857|	0.733|	2.99 fps|
-|OSTrack384_gottrainonly| 0.741|	0.839|	0.715|  3.88 fps|
-|OSTrack384_gottrainonly_NeighborTrack| 0.745|	0.842|	0.715|	4.07 fps|
+|OSTrack384| 73.94|	83.63|	72.16|	7.00 fps|
+|OSTrack384_NeighborTrack| 75.73|	85.72|	73.29|	2.99 fps|
+|OSTrack384_gottrainonly| 74.19|	83.98|	71.58|  3.88 fps|
+|OSTrack384_gottrainonly_NeighborTrack| 74.53|	84.25|	71.54|	4.07 fps|
 
 
 |[**TrackingNet**](https://eval.ai/web/challenges/challenge-page/1805/leaderboard/4225)|Success|Precision|Normalized Precision|Coverage| 
