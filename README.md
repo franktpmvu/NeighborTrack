@@ -26,9 +26,11 @@ some code are from OSTrack,Votchallenge,Ocean,TransT,pytracking thanks these pro
 ## [**Demo videos**](https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47)
 ## [**Models and source results**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
 
-## Python Dependent 
+## Python Environment 
 ```shell
 pip install munkres==1.1.4
+pip install shapely
+
 ```
 Other dependencies depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
 
