@@ -22,21 +22,9 @@ website:
 [**SoftNMS implement**](https://github.com/bharatsingh430/soft-nms)
 
 ## [**Demo videos**](https://www.youtube.com/playlist?list=PLhJHN1Q0397Kr1n-3Zs084Wn0KPPL_s47)
-## [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
-[**More information for model paths**](https://github.com/franktpmvu/NeighborTrack/blob/main/model_download_setting.md)
-## Python Environment 
-```shell
-pip install munkres==1.1.4
-pip install shapely
-
-```
-Other dependencies depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
 
 
-# Get result from NeighborTrack with OSTrack
-Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py)
-Please seen [**OSTrack user's guide**](https://github.com/botaoye/OSTrack) to set project paths
-
+## Results
 ## LaSOT,GOT10K,TrackingNet (baseline from OSTrack github code)
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
 |---|---|---|---|---|---|
@@ -56,22 +44,6 @@ Please seen [**OSTrack user's guide**](https://github.com/botaoye/OSTrack) to se
 |OSTrack384| 83.58      | 82.94      | 88.05      | 100        |
 |OSTrack384_NeighborTrack| 83.79      | 83.24      | 88.30      | 100        |
 
-
-
-```shell 
-cd /your_path/trackers/ostrack/
-sh test.sh
-#or
-#lasot example
-python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset lasot --threads 24 --num_gpus 8 --neighbor 1
-#python tracking/analysis_results.py 
-
-#got-10K example
-python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
-#to use got-10K train_from_got10K_only
-python tracking/test.py ostrack vitb_384_mae_ce_32x4_got10k_ep100_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
-
-```
 ## votchallenge
 |VOT2022-ST|EAO|A|R|
 |---|---|---|---|
@@ -86,6 +58,50 @@ python tracking/test.py ostrack vitb_384_mae_ce_32x4_got10k_ep100_neighbor --dat
 |Normal Cross Correlation tracker(NCC)| 0.102|	0.564|	0.208|
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
 
+
+## Quick start
+### 1.install Environment
+```shell
+pip install munkres==1.1.4
+pip install shapely
+
+```
+Other environment depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
+```shell
+cd trackers/ostrack
+sh example_ostrack_install.sh
+```
+
+### 2.download dataset and models put on each path
+[**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
+
+[**More information for model paths**](https://github.com/franktpmvu/NeighborTrack/blob/main/model_download_setting.md)
+
+
+
+# Get result from NeighborTrack with OSTrack
+Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py).
+
+More information :[**OSTrack user's guide**](https://github.com/botaoye/OSTrack)
+
+
+
+## LaSOT, GOT-10K
+```shell 
+cd /your_path/trackers/ostrack/
+sh test.sh
+#or
+#lasot example
+python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset lasot --threads 24 --num_gpus 8 --neighbor 1
+#python tracking/analysis_results.py 
+
+#got-10K example
+python tracking/test.py ostrack vitb_384_mae_ce_32x4_ep300_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
+#to use got-10K train_from_got10K_only
+python tracking/test.py ostrack vitb_384_mae_ce_32x4_got10k_ep100_neighbor --dataset got10k_test --threads 16 --num_gpus 8 --neighbor 1 
+
+```
+## VOT challenge
 ```shell
 vot test ostrackNeighbor
 vot test ostrackNeighborAR
@@ -95,9 +111,9 @@ vot analysis --workspace vot2022st ostrackNeighbor
 vot evaluate --workspace ./vot2021 ostrackNeighborAR
 vot analysis --workspace vot2021 ostrackNeighborAR
 ```
-to get vot challenge result, please seen detail by code [**trackers.ini**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/trackers.ini),  [**ostrack_384_vot_neighbor.py**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py)
+[**setting vot workspace example**](https://github.com/franktpmvu/NeighborTrack/blob/main/example_vot_toolkit.sh)
+VOT trackers example:[**trackers.ini**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/trackers.ini),  [**ostrack_384_vot_neighbor.py**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py)
 
-[**setting example**](https://github.com/franktpmvu/NeighborTrack/blob/main/example_vot_toolkit.sh)
 
 if you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen [**Votchallenge:**](https://github.com/votchallenge/toolkit)
 
@@ -111,8 +127,19 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 ```
 
 # How to use NeighborTrack in your own SOT tracker:
+## 1.Create dependent functions:
+there are a simple code from Votchallenge NCC tracker , add 3 functions to use our method.(`initialize`, `track_neighbor` and `update_center`).
+Please see: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14  
+After add functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
 
-## init and use NeighborTracker:
+Remenber ,the tracker should be have 2 independent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
+
+### other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
+
+### [**More details:**](https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md)
+
+
+## 2.Usage:
 ### init
 https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L63
 ### get tracking answer
@@ -124,15 +151,5 @@ tracker and invtracker is original ostrack, you can change it by your SOT tracke
 region = `[x,y,w,h]`,(x y = top left) 
 
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
-
-there are a simple code from Votchallenge NCC tracker , add 3 function to use our method.(`initialize`, `track_neighbor` and `update_center`).
-Please see: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14  
-After add functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
-
-Remenber ,the tracker should be have 2 indepandent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ansure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
-
-## other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
-
-## [**More details:**](https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md)
 
 
