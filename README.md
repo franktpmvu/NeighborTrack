@@ -97,11 +97,11 @@ vot analysis --workspace vot2022st ostrackNeighbor
 vot evaluate --workspace ./vot2021 ostrackNeighborAR
 vot analysis --workspace vot2021 ostrackNeighborAR
 ```
-please seen code detail from NeighborTrack/trackers.ini, NeighborTrack/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py 
+to get vot challenge result, please seen detail by code [**trackers.ini**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/trackers.ini),  [**ostrack_384_vot_neighbor.py**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py)
 
 [**setting example**](https://github.com/franktpmvu/NeighborTrack/blob/main/example_vot_toolkit.sh)
 
-if you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen Votchallenge:https://github.com/votchallenge/toolkit
+if you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen [**Votchallenge:**](https://github.com/votchallenge/toolkit)
 
 ## In your own video
 ```shell 
