@@ -54,7 +54,7 @@ pip install tikzplotlib
 echo ""
 echo ""
 echo "****************** Installing thop tool for FLOPs and Params computing ******************"
-pip install thop-0.0.31.post2005241907
+pip install thop==0.1.1
 
 echo ""
 echo ""
@@ -97,7 +97,7 @@ pip install wandb
 echo ""
 echo ""
 echo "****************** Installing timm ******************"
-pip install timm
+pip install timm==0.6.7
 
 echo ""
 echo ""
