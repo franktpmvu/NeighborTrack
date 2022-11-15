@@ -4,8 +4,8 @@ import torch
 import numpy as np
 import cv2
 import torch.nn as nn
-from MixFormer.external.AR.pytracking.utils.loading import load_network
-from MixFormer.external.AR.ltr.data.processing_utils_SE import sample_target_SE, transform_image_to_crop_SE, map_mask_back
+from pytracking.utils.loading import load_network
+from ltr.data.processing_utils_SE import sample_target_SE, transform_image_to_crop_SE, map_mask_back
 env_path = os.path.join(os.path.dirname(__file__), '..')
 if env_path not in sys.path:
     sys.path.append(env_path)
