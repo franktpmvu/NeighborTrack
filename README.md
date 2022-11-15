@@ -1,7 +1,5 @@
 # NeighborTrack
-The implement of NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets
-
-https://arxiv.org/abs/2211.06663
+The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
 
