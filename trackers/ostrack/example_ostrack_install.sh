@@ -104,5 +104,7 @@ echo ""
 apt install libgl1-mesa-glx
 apt-get install ffmpeg libsm6 libxext6  -y
 
+echo "****************** Installing munkres ******************"
+pip install munkres==1.1.4
 
 echo "****************** Installation complete! ******************"
