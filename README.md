@@ -2,6 +2,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-got-10k)](https://paperswithcode.com/sota/visual-object-tracking-on-got-10k?p=neighbortrack-improving-single-object)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-lasot)](https://paperswithcode.com/sota/visual-object-tracking-on-lasot?p=neighbortrack-improving-single-object)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=neighbortrack-improving-single-object)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=neighbortrack-improving-single-object)
 
 The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
@@ -25,7 +26,9 @@ website:
 
 
 ## Results
-## LaSOT,GOT10K,TrackingNet (baseline from OSTrack github code)
+[**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
+
+## LaSOT,GOT10K,TrackingNet,UAV123 (baseline from OSTrack github code)
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
 |---|---|---|---|---|---|
 |OSTrack384| 71.90      | 82.91      | 72.50      | 77.65        | 81.40             |
@@ -45,6 +48,15 @@ website:
 |OSTrack384_NeighborTrack_tau=9| 83.73 | 83.16      | 88.23      | 100        |
 |OSTrack384_NeighborTrack_tau=18| 83.79 | 83.24      | 88.30      | 100        |
 
+|UAV123|AUC|
+|---|---|
+|OSTrack384| 72.17|
+|OSTrack384_NeighborTrack_tau=9| 71.52|
+|OSTrack384_NeighborTrack_tau=27| 72.56|
+
+Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC
+
+
 ## votchallenge
 |VOT2022-ST|EAO|A|R|
 |---|---|---|---|
@@ -59,17 +71,8 @@ website:
 |Normal Cross Correlation tracker(NCC)| 0.102|	0.564|	0.208|
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
 
-## UAV123
-|UAV123|AUC|
-|---|---|
-|OSTrack384| 72.17|
-|OSTrack384_NeighborTrack_tau=9| 71.52|
-|OSTrack384_NeighborTrack_tau=27| 72.56|
-
-Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC
 
 
-[**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
 
 ## Quick start
 ### 1.install Environment
