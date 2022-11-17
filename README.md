@@ -42,7 +42,8 @@ website:
 |[**TrackingNet**](https://eval.ai/web/challenges/challenge-page/1805/leaderboard/4225)|Success|Precision|Normalized Precision|Coverage| 
 |---|---|---|---|---|
 |OSTrack384| 83.58      | 82.94      | 88.05      | 100        |
-|OSTrack384_NeighborTrack| 83.79      | 83.24      | 88.30      | 100        |
+|OSTrack384_NeighborTrack_tau=9| 83.73 | 83.16      | 88.23      | 100        |
+|OSTrack384_NeighborTrack_tau=18| 83.79 | 83.24      | 88.30      | 100        |
 
 ## votchallenge
 |VOT2022-ST|EAO|A|R|
@@ -58,6 +59,14 @@ website:
 |Normal Cross Correlation tracker(NCC)| 0.102|	0.564|	0.208|
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
 
+## UAV123
+|UAV123|AUC|
+|---|---|
+|OSTrack384| 72.17|
+|OSTrack384_NeighborTrack_tau=9| 71.52|
+|OSTrack384_NeighborTrack_tau=27| 72.56|
+
+Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC
 
 ## Quick start
 ### 1.install Environment
