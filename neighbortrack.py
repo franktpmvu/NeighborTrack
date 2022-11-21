@@ -42,8 +42,8 @@ class neighbortrack(object):
         self.printinfo=False
         self.cut_imageborder = False 
         #---candidate add or del----
-        self.ls_add_mode = 0 # if IOU (targetHist,C_j) less than (targetHist,other candidate) , add C_j to neighbor trajectory
-        self.del_winner = False # if IOU (targetHist,C_j) less than (targetHist,other candidate), del winnner traj from neighbor trajectory
+        self.ls_add_mode = 0 # if IOU (targetHist,argmax(S)) less than (targetHist,other candidate) , add argmax(S) to neighbor trajectory
+        self.del_winner = False # if IOU (targetHist,argmax(S)) less than (targetHist,other candidate), del winnner traj from neighbor trajectory
         if not revtracker is None:
             self.revtracker=revtracker
         elif not invtracker is None:
@@ -448,7 +448,7 @@ class neighbortrack(object):
 
 
         
-        #if candidate(without C_j) + trajectory pool >0
+        #if candidate(without argmax(S)) + trajectory pool >0
         
         if len(location_neighbor_pos)+len(state['old_neighbor_pos'])>0 and self.rev_frames!=0:
             
@@ -664,7 +664,7 @@ class neighbortrack(object):
                     print('all_rev_iou.argmax() = ',all_rev_iou.argmax())
                     print('all_rev_iou = ',all_rev_iou)
 
-                if all_rev_iou.argmax()==0:# max IOU = C_j
+                if all_rev_iou.argmax()==0:# max IOU = argmax(S)
                     (kf_est_x,kf_est_y) = state['KF'].update(np.array([state['target_pos'][0],state['target_pos'][1]]))
                     state['KF_est_pos'] = np.squeeze(np.asarray([kf_est_x,kf_est_y]))[0]
                     state['choose']='model pred1'
