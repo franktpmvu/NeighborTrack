@@ -27,7 +27,7 @@ because update tracking center of image will changed the answer of next call `tr
 If any code will change answer of call `track_neighbor` when input same image and xywh,
 please put it in `def update_center:` .
 
-### 2.2.Output candidates:
+### 2.2. Output candidates:
 
 Output candidates and it's score by SOT tracker, we didn't need features of candidates.
 Not only one way can get candidates, for example, the top 10 score BBOX are also fine.
