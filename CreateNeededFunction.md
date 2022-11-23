@@ -1,6 +1,6 @@
 # How to create the 3 functions needed:
 
-# def initialize(self,image,init_info):
+# initialize function:
 initialize the tracking method. init state xywh img or something else.
 Depends on what kind of initialization your SOT model needs. Please don't init cuda model in this block,
 cuda model shold init outside of `def initialize:`, e.g. `__init__()`,
@@ -8,10 +8,14 @@ initialize means change target or init target in video, not init model.
 `return []`
 please see ostrack example :https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/tracker/ostrack.py#L50
 
-# def track_neighbor(self,image,th):
+# track_neighbor function:
 this function need to get the candidates from your own SOT tracker,
 you can get candidates from score > max(C)*0.7 or whatever.
 Watch the different of "track_neighbor" and "track":
+
+example:
+
+https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/tracker/ostrack.py#L149
 
 ## 1. Dont update tracker state:
 
@@ -42,7 +46,7 @@ candidate score in cell == `[(C1)score,(C2)score,...]`
 
 https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/tracker/ostrack.py#L149
 
-# def update_center(self,xywh):
+# update_center function:
 update teplate, DIMP, center, learningrate, train model,..., etc.
 Please put it on this block.
 Our method will update it after get that frame's final answer (xywh).
