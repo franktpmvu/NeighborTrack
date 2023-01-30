@@ -360,7 +360,7 @@ class NeighborTracker(Tracker):
         #ntracker.ls_add_mode = 0
         #ntracker.inv_frames = 27
         #ntracker.test_probe_inv_frames = 27
-        ntracker.del_winner = True
+        #ntracker.del_winner = True
 
         if out is None:
             out = {}
