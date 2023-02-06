@@ -165,6 +165,6 @@ tracker and invtracker is original ostrack, you can change it by your SOT tracke
 
 region = `[x,y,w,h]`,(x y = top left) 
 
-image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB])`
+image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB)])`
 
 
