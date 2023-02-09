@@ -358,8 +358,8 @@ class NeighborTracker(Tracker):
         region = init_info.get('init_bbox')
         ntracker = neighbortrack(tracker,image,region[:2],region[2:],invtracker=invtracker)
         #ntracker.ls_add_mode = 0
-        #ntracker.inv_frames = 27
-        #ntracker.test_probe_inv_frames = 27
+        #ntracker.rev_frames = 27
+        #ntracker.test_probe_rev_frames = 27
         #ntracker.del_winner = True
 
         if out is None:
@@ -516,8 +516,8 @@ class NeighborTracker(Tracker):
                 #print(state_neighbor)
                 print(state_neighbor['old_neighbor_pos'])# CAND
                 print(state_neighbor['old_neighbor_sz'])# CAND
-                print(state_neighbor['inv_target_pos'])# CAND
-                print(state_neighbor['inv_target_sz'])# CAND
+                print(state_neighbor['rev_target_pos'])# CAND
+                print(state_neighbor['rev_target_sz'])# CAND
 
                 #print(state_neighbor['old_neighbor_score'])# CAND
                 print(state_neighbor['old_target_pos'])# trackpool_history_target
@@ -559,10 +559,10 @@ class NeighborTracker(Tracker):
                     old_image_our = old_image.copy()
                     old_image_hist = old_image.copy()
                     
-                    our_xywh = pos_sz_2_xywh(state_neighbor['winner_inv_pos'][ind],state_neighbor['winner_inv_sz'][ind])
+                    our_xywh = pos_sz_2_xywh(state_neighbor['winner_rev_pos'][ind],state_neighbor['winner_rev_sz'][ind])
                     our_xywh = [int(s) for s in our_xywh]
 
-                    original_xywh = pos_sz_2_xywh(state_neighbor['inv_target_pos'][ind],state_neighbor['inv_target_sz'][ind])
+                    original_xywh = pos_sz_2_xywh(state_neighbor['rev_target_pos'][ind],state_neighbor['rev_target_sz'][ind])
                     original_xywh = [int(s) for s in original_xywh]
 
                     history_xywh = pos_sz_2_xywh(state_neighbor['old_target_pos'][ind],state_neighbor['old_target_sz'][ind])
