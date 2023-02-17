@@ -28,7 +28,7 @@ website:
 ## Results
 [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
 
-## LaSOT,GOT10K,TrackingNet,UAV123 (baseline from OSTrack github code)
+## LaSOT,GOT10K,TrackingNet,UAV123,OTB100 (baseline from OSTrack github code)
 |LaSOT|AUC|OP50|OP75|Precision|Norm Precision|
 |---|---|---|---|---|---|
 |OSTrack384| 71.90      | 82.91      | 72.50      | 77.65        | 81.40             |
@@ -56,7 +56,6 @@ website:
 
 Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC, we set tau=27 on whole dataset
 
-## OTB100
 |OTB100|AUC|
 |---|---|
 |OSTrack384| 0.692|
