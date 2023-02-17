@@ -56,6 +56,13 @@ website:
 
 Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC, we set tau=27 on whole dataset
 
+## OTB100
+|OTB100|AUC|
+|---|---|
+|OSTrack384| 0.692|
+|OSTrack384_NeighborTrack_tau=9| 0.695|
+|OSTrack384_NeighborTrack_tau=27| 0.697|
+
 
 ## votchallenge
 |VOT2022-ST|EAO|A|R|
