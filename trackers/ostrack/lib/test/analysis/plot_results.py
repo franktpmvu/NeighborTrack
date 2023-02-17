@@ -368,12 +368,12 @@ def print_results(trackers, dataset, report_name, merge_results=False,
         scores['Norm Precision'] = norm_prec_score
     if 'fps' in plot_types:
         scores['fps'] = torch.tensor(eval_data['fps'])
-        print(scores['Precision'])
-        print(scores['Norm Precision'])
-        print(scores['AUC'])
-        print(scores['OP50'])
-        print(scores['OP75'])
-        print(scores['fps'])
+        #print(scores['Precision'])
+        #print(scores['Norm Precision'])
+        #print(scores['AUC'])
+        #print(scores['OP50'])
+        #print(scores['OP75'])
+        #print(scores['fps'])
 
 
     # Print
