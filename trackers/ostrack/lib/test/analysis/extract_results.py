@@ -122,11 +122,15 @@ def extract_results(trackers, dataset, report_name, skip_missing_seq=False, plot
                                                     dtype=torch.float32)
 
     valid_sequence = torch.ones(len(dataset), dtype=torch.uint8)
+    total_pred_time=torch.zeros(len(trackers),dtype=torch.float64)
+    total_frames=torch.zeros(len(trackers),dtype=torch.float64)
+    total_fps=torch.zeros(len(trackers),dtype=torch.float64)
 
     for seq_id, seq in enumerate(tqdm(dataset)):
         # Load anno
         anno_bb = torch.tensor(seq.ground_truth_rect)
         target_visible = torch.tensor(seq.target_visible, dtype=torch.uint8) if seq.target_visible is not None else None
+
         for trk_id, trk in enumerate(trackers):
             # Load results
             base_results_path = '{}/{}'.format(trk.results_dir, seq.name)
@@ -140,6 +144,22 @@ def extract_results(trackers, dataset, report_name, skip_missing_seq=False, plot
                     break
                 else:
                     raise Exception('Result not found. {}'.format(results_path))
+                    
+                    
+            results_time_path = '{}_time.txt'.format(base_results_path)
+            if os.path.isfile(results_time_path):
+                pred_time = torch.tensor(load_text(str(results_time_path), delimiter=('\t'), dtype=np.float64))
+            else:
+                if skip_missing_seq:
+                    valid_sequence[seq_id] = 0
+                    break
+                else:
+                    raise Exception('Result not found. {}'.format(results_time_path))
+            seq_frames=len(pred_time)
+            total_time=pred_time.sum()
+            total_pred_time[trk_id]+=total_time
+            total_frames[trk_id]+=seq_frames
+
 
             # Calculate measures
             err_overlap, err_center, err_center_normalized, valid_frame = calc_seq_err_robust(
@@ -158,9 +178,21 @@ def extract_results(trackers, dataset, report_name, skip_missing_seq=False, plot
             ave_success_rate_plot_overlap[seq_id, trk_id, :] = (err_overlap.view(-1, 1) > threshold_set_overlap.view(1, -1)).sum(0).float() / seq_length
             ave_success_rate_plot_center[seq_id, trk_id, :] = (err_center.view(-1, 1) <= threshold_set_center.view(1, -1)).sum(0).float() / seq_length
             ave_success_rate_plot_center_norm[seq_id, trk_id, :] = (err_center_normalized.view(-1, 1) <= threshold_set_center_norm.view(1, -1)).sum(0).float() / seq_length
+            
+            
+    for ind_ in range(len(trackers)):
+
+        total_fps[ind_]=1.0/(total_pred_time[ind_]/total_frames[ind_])
+    #print(total_pred_time)
+    #print(total_frames)
+    #print(total_fps)
+
 
     print('\n\nComputed results over {} / {} sequences'.format(valid_sequence.long().sum().item(), valid_sequence.shape[0]))
-
+    
+    
+        
+    
     # Prepare dictionary for saving data
     seq_names = [s.name for s in dataset]
     tracker_names = [{'name': t.name, 'param': t.parameter_name, 'run_id': t.run_id, 'disp_name': t.display_name}
@@ -172,6 +204,7 @@ def extract_results(trackers, dataset, report_name, skip_missing_seq=False, plot
                  'ave_success_rate_plot_center': ave_success_rate_plot_center.tolist(),
                  'ave_success_rate_plot_center_norm': ave_success_rate_plot_center_norm.tolist(),
                  'avg_overlap_all': avg_overlap_all.tolist(),
+                 'fps':total_fps.tolist(),
                  'threshold_set_overlap': threshold_set_overlap.tolist(),
                  'threshold_set_center': threshold_set_center.tolist(),
                  'threshold_set_center_norm': threshold_set_center_norm.tolist()}
