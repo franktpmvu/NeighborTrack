@@ -366,6 +366,15 @@ def print_results(trackers, dataset, report_name, merge_results=False,
         # Index out valid sequences
         norm_prec_curve, norm_prec_score = get_prec_curve(ave_success_rate_plot_center_norm, valid_sequence)
         scores['Norm Precision'] = norm_prec_score
+    if 'fps' in plot_types:
+        scores['fps'] = torch.tensor(eval_data['fps'])
+        print(scores['Precision'])
+        print(scores['Norm Precision'])
+        print(scores['AUC'])
+        print(scores['OP50'])
+        print(scores['OP75'])
+        print(scores['fps'])
+
 
     # Print
     tracker_disp_names = [get_tracker_display_name(trk) for trk in tracker_names]
