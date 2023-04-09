@@ -6,6 +6,8 @@
 
 The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
+This paper was accepted by 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
+
 Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
 
 some SOT model code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. thanks these projects alot.
@@ -76,6 +78,19 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 |TransT_N4_NeighborTrack| 0.518|	0.777|	0.810|
 |Normal Cross Correlation tracker(NCC)| 0.102|	0.564|	0.208|
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
+
+
+## bibtex
+```bibtex
+
+@InProceedings{chen2023neighbortrack,
+    author    = {Yu-Hsi Chen, Chien-Yao  Wang, Cheng-Yun Yang, Hung-Shuo Chang, Youn-Long Lin, Yung-Yu Chuang and Hong-Yuan Liao},
+    title     = {NeighborTrack: Single Object Tracking by Bipartite Matching with Neighbor Tracklets and Its Applications to Sports},
+    booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+    month     = {June},
+    year      = {2023}
+}
+```
 
 
 
