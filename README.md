@@ -188,4 +188,14 @@ region = `[x,y,w,h]`,(x y = top left)
 
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB)])`
 
+### no module named xxxx
+if you see this error, please add 3 paths on tracking/test.py
+```python
+{}\NeighborTrack\trackers\ostrack\lib\test\tracker
+
+{}\NeighborTrack\trackers\ostrack\tracking
+
+{}   (= NeighborTrack\..\)
+```
+
 
