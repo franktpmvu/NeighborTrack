@@ -4,7 +4,13 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-trackingnet)](https://paperswithcode.com/sota/visual-object-tracking-on-trackingnet?p=neighbortrack-improving-single-object)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/neighbortrack-improving-single-object/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=neighbortrack-improving-single-object)
 
-The implement of [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
+
+
+update: add model speed and some experiment in CVPRW [**NeighborTrack**](https://openaccess.thecvf.com/content/CVPR2023W/CVSports/html/Chen_NeighborTrack_Single_Object_Tracking_by_Bipartite_Matching_With_Neighbor_Tracklets_CVPRW_2023_paper.html)
+
+
+old version: [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
+
 
 This paper was accepted by 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
 
@@ -83,12 +89,13 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 ## bibtex
 ```bibtex
 
-@InProceedings{chen2023neighbortrack,
-    author    = {Yu-Hsi Chen, Chien-Yao  Wang, Cheng-Yun Yang, Hung-Shuo Chang, Youn-Long Lin, Yung-Yu Chuang and Hong-Yuan Liao},
-    title     = {NeighborTrack: Single Object Tracking by Bipartite Matching with Neighbor Tracklets and Its Applications to Sports},
-    booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)},
+@InProceedings{Chen_2023_CVPR,
+    author    = {Chen, Yu-Hsi and Wang, Chien-Yao and Yang, Cheng-Yun and Chang, Hung-Shuo and Lin, Youn-Long and Chuang, Yung-Yu and Liao, Hong-Yuan Mark},
+    title     = {NeighborTrack: Single Object Tracking by Bipartite Matching With Neighbor Tracklets and Its Applications to Sports},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
     month     = {June},
-    year      = {2023}
+    year      = {2023},
+    pages     = {5138-5147}
 }
 ```
 
