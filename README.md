@@ -6,10 +6,14 @@
 
 
 
-update: add model speed and some experiment in CVPRW [**NeighborTrack**](https://openaccess.thecvf.com/content/CVPR2023W/CVSports/html/Chen_NeighborTrack_Single_Object_Tracking_by_Bipartite_Matching_With_Neighbor_Tracklets_CVPRW_2023_paper.html)
+update: add model speed and some experiment in CVPRW: 
+
+[**NeighborTrack: Single Object Tracking by Bipartite Matching With Neighbor Tracklets and Its Applications to Sports**](https://openaccess.thecvf.com/content/CVPR2023W/CVSports/html/Chen_NeighborTrack_Single_Object_Tracking_by_Bipartite_Matching_With_Neighbor_Tracklets_CVPRW_2023_paper.html)
 
 
-old version: [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
+old version: 
+
+[**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 
 This paper was accepted by 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
