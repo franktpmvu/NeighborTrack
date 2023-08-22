@@ -6,23 +6,23 @@
 
 
 
-update: add model speed and some experiment in CVPRW: 
+Update: Add model speed and some experiment in CVPRW: 
 
 [**NeighborTrack: Single Object Tracking by Bipartite Matching With Neighbor Tracklets and Its Applications to Sports**](https://openaccess.thecvf.com/content/CVPR2023W/CVSports/html/Chen_NeighborTrack_Single_Object_Tracking_by_Bipartite_Matching_With_Neighbor_Tracklets_CVPRW_2023_paper.html)
 
 
-old version: 
+Old version: 
 
 [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 
 This paper was accepted by 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
 
-Single Object Tracking post processing method by using cycle consistency and neighbor(python version)  
+Single Object Tracking(SOT) post processing method by using cycle consistency and neighbor(python version)
 
-some SOT model code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. thanks these projects alot.
+Some SOT model code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. Thanks these projects alot.
 
-website:
+Website:
 [**OSTrack**](https://github.com/botaoye/OSTrack), 
 [**TransT**](https://github.com/chenxin-dlut/TransT), 
 [**Votchallenge**](https://github.com/votchallenge/toolkit), 
@@ -75,7 +75,7 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 |OSTrack384_NeighborTrack_tau=27| 0.697|
 
 
-## votchallenge
+## Votchallenge
 |VOT2022-ST|EAO|A|R|
 |---|---|---|---|
 |OSTrack384| 0.538|	0.779|	0.824|
@@ -90,7 +90,7 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 |NCC_NeighborTrack| 0.127|	0.549|	0.266|
 
 
-## bibtex
+## Bibtex
 ```bibtex
 
 @InProceedings{Chen_2023_CVPR,
@@ -107,7 +107,7 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 
 
 ## Quick start
-### 1.install Environment
+### 1.Install Environment
 ```shell
 pip install munkres==1.1.4
 pip install shapely
@@ -119,7 +119,7 @@ cd trackers/ostrack
 sh example_ostrack_install.sh
 ```
 
-### 2.download dataset and models put on each path
+### 2.Download dataset and models, then put on each path
 [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
 
 [**More information for model paths**](https://github.com/franktpmvu/NeighborTrack/blob/main/model_download_setting.md)
@@ -127,7 +127,7 @@ sh example_ostrack_install.sh
 
 
 # Get result from NeighborTrack with OSTrack
-Work space are in NeighborTrack/trackers/ostrack/ , please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py).
+Work space are in 'NeighborTrack/trackers/ostrack/', please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py).
 
 More information :[**OSTrack user's guide**](https://github.com/botaoye/OSTrack)
 
@@ -162,7 +162,7 @@ vot analysis --workspace vot2021 ostrackNeighborAR
 VOT trackers example:[**trackers.ini**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/trackers.ini),  [**ostrack_384_vot_neighbor.py**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py)
 
 
-if you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen [**Votchallenge:**](https://github.com/votchallenge/toolkit)
+If you want to know how to create workspace of vot2022st vot2020 vot2021 dataset, please seen [**Votchallenge:**](https://github.com/votchallenge/toolkit)
 
 ## In your own video
 ```shell 
@@ -175,32 +175,32 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 
 # How to use NeighborTrack in your own SOT tracker:
 ## 1.Create dependent functions:
-there are a simple code from Votchallenge NCC tracker , add 3 functions to use our method.(`initialize`, `track_neighbor` and `update_center`).
+There are a simple code from Votchallenge NCC tracker, add 3 functions to use our method(`initialize`, `track_neighbor` and `update_center`).
 Please see: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14  
 After add functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
 
-Remenber ,the tracker should be have 2 independent model forward/reverse, because all of SOT method will forgot tracking target after initialize , if just 1 forward/backward tracker, it cannot switch forward/backward mission and ensure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
+Remenber, the tracker should be have 2 independent model forward/reverse, because all of SOT method will forgot tracking target after initialize, if just 1 forward/backward tracker, it cannot switch forward/backward mission and ensure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
 
-### other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
+### Other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
 
 ### [**More details:**](https://github.com/franktpmvu/NeighborTrack/blob/main/CreateNeededFunction.md)
 
 
 ## 2.Usage:
-### init
+### Init
 https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L63
-### get tracking answer
+### Get tracking answer
 https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L70
 
 
-tracker and invtracker is original ostrack, you can change it by your SOT tracker.
+Tracker and invtracker is original ostrack, you can change it by your SOT tracker.
 
 region = `[x,y,w,h]`,(x y = top left) 
 
 image = image by your model input, for example ostrack's image = `numpy.array(img[h,w,3(RGB)])`
 
-### no module named xxxx
-if you see this error, please add 3 paths on tracking/test.py
+### No module named xxxx
+If you see this error, please add 3 paths on tracking/test.py
 ```python
 {}\NeighborTrack\trackers\ostrack\lib\test\tracker
 
