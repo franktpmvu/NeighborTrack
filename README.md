@@ -108,12 +108,20 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 
 ## Quick start
 ### 1.Install Environment
+my driver version:
+NVIDIA-SMI 465.19.01    Driver Version: 465.19.01
+Python 3.7.7 (default, Mar 23 2020, 22:36:06) 
+torch.version.cuda=10.1
+
 ```shell
 pip install munkres==1.1.4
 pip install shapely
 
 ```
 Other environment depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
+
+Example of my Environment please see [**This file.**](https://github.com/franktpmvu/NeighborTrack/blob/50a4127ccc426a379a089ef6826fb01023c0765a/requirements_230828.txt)
+
 ```shell
 cd trackers/ostrack
 sh example_ostrack_install.sh
