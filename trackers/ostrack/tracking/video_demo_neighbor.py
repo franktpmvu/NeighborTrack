@@ -21,7 +21,7 @@ def run_video(tracker_name, tracker_param, videofile, optional_box=None, debug=N
     """
     tracker = NeighborTracker(tracker_name, tracker_param, "video")
     invTracker = Tracker(tracker_name, tracker_param, "video")
-    tracker.run_video_neighbor(videofilepath=videofile, optional_box=optional_box, debug=debug, save_results=save_results,save_img=save_img ,revtracker=invTracker)
+    tracker.run_video_neighbor(videofilepath=videofile, optional_box=optional_box, debug=debug, save_results=save_results,save_img=save_img ,invtracker=invTracker)
 
 
 def main():
