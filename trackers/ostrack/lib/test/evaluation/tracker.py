@@ -359,7 +359,7 @@ class NeighborTracker(Tracker):
         out = tracker.initialize(image, init_info)
         #init_info = {'init_bbox': list(gt_bbox_np)}
         region = init_info.get('init_bbox')
-        ntracker = neighbortrack(tracker,image,region[:2],region[2:],invtracker=invtracker)
+        ntracker = neighbortrack(tracker,image,region[:2],region[2:],revtracker=invtracker)
         #ntracker.ls_add_mode = 0
         #ntracker.rev_frames = 27
         #ntracker.test_probe_rev_frames = 27
