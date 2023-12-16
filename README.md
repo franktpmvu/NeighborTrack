@@ -60,19 +60,22 @@ Website:
 |OSTrack384_NeighborTrack_tau=9| 83.73 | 83.16      | 88.23      | 100        |
 |OSTrack384_NeighborTrack_tau=18| 83.79 | 83.24      | 88.30      | 100        |
 
-|UAV123|AUC|
-|---|---|
-|OSTrack384| 72.17|
-|OSTrack384_NeighborTrack_tau=9| 71.52|
-|OSTrack384_NeighborTrack_tau=27| 72.56|
+|UAV123| AUC        | OP50       | OP75       | Precision    | Norm Precision    | FPS        |
+|---|---|---|---|---|---|---|
+|OSTrack384| 72.17      | 87.24      | 68.09      | 92.59        | 88.06             | 3.83       |
+|OSTrack384_NeighborTrack_tau=9 | 71.52      | 86.41      | 67.47      | 91.86        | 87.27             | 2.11       |
+|OSTrack384_NeighborTrack_tau=27| 72.56      | 87.75      | 68.15      | 93.37        | 88.51             | 1.31       |
+
+
 
 Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC, we set tau=27 on whole dataset
 
-|OTB100|AUC|
-|---|---|
-|OSTrack384| 0.692|
-|OSTrack384_NeighborTrack_tau=9| 0.695|
-|OSTrack384_NeighborTrack_tau=27| 0.697|
+|OTB100| AUC        | OP50       | OP75       | Precision    | Norm Precision    | FPS        |
+|---|---|---|---|---|---|---|
+|OSTrack384 | 69.27      | 85.42      | 56.39      | 89.62        | 84.38             | 3.91       |
+|OSTrack384_NeighborTrack_tau=9| 69.54      | 85.52      | 56.40      | 90.21        | 84.68             | 1.98       |
+|OSTrack384_NeighborTrack_tau=27| 69.74      | 85.88      | 56.49      | 90.42        | 84.87             | 1.23       |
+
 
 
 ## Votchallenge
