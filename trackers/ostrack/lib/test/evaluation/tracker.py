@@ -503,10 +503,11 @@ class NeighborTracker(Tracker):
         while True:
             
             ret, frame = cap.read()
-            frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-
             if frame is None:
                 break
+
+            frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+
 
             frame_disp = frame.copy()
             frame_disp = cv.cvtColor(frame_disp, cv.COLOR_BGR2RGB)
