@@ -10,8 +10,8 @@ from pathlib import Path
 import numpy as np
 import sys
 
-print('plz change /data/ to your base path')
-sys.path.append('/data/')
+now_path = os.path.abspath(os.getcwd())
+sys.path.append(now_path+'/../../../')
 
 from NeighborTrack.neighbortrack import neighbortrack
 from NeighborTrack.NTutils.utils import  xy_wh_2_rect,pos_sz_2_xywh
