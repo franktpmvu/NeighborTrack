@@ -16,11 +16,11 @@ Old version:
 [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 
-This paper was accepted by 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
+This paper was accepted by the 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
 
-Single Object Tracking(SOT) post processing method by using cycle consistency and neighbor(python version)
+Single Object Tracking(SOT) post-processing method by using cycle consistency and neighbor(python version)
 
-Some SOT model code are from OSTrack, Votchallenge, Ocean, TransT, pytracking, Mixformer. Thanks these projects alot.
+Some SOT model codes are from OSTrack, votchallenge, Ocean, TransT, pytracking, and Mixformer. Thanks to these projects a lot.
 
 Website:
 [**OSTrack**](https://github.com/botaoye/OSTrack), 
@@ -68,7 +68,7 @@ Website:
 
 
 
-Note: UAV123 have some long term tracking videos, it need more temporal information, if use standard setting  tau=9, it cannot improve AUC, we set tau=27 on whole dataset
+Note: UAV123 has some long-term tracking videos, and it needs more temporal information, if use standard setting  tau=9, it cannot improve AUC, we set tau=27 on the whole dataset
 
 |OTB100| AUC        | OP50       | OP75       | Precision    | Norm Precision    | FPS        |
 |---|---|---|---|---|---|---|
@@ -110,10 +110,10 @@ Note: UAV123 have some long term tracking videos, it need more temporal informat
 
 
 ## Quick start
-### 1.Install Environment
+### 1. Install Environment
 my driver version:
 NVIDIA-SMI 465.19.01    Driver Version: 465.19.01
-Python 3.7.7 (default, Mar 23 2020, 22:36:06) 
+Python 3.7.7 (default, Mar 23, 2020, 22:36:06) 
 torch.version.cuda=10.1
 
 ```shell
@@ -121,7 +121,7 @@ pip install munkres==1.1.4
 pip install shapely
 
 ```
-Other environment depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
+Other environments depend on your base model, e.g. [**OSTrack:**](https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/example_ostrack_install.sh)
 
 Example of my Environment please see [**This file.**](https://github.com/franktpmvu/NeighborTrack/blob/50a4127ccc426a379a089ef6826fb01023c0765a/requirements_230828.txt)
 
@@ -130,15 +130,15 @@ cd trackers/ostrack
 sh example_ostrack_install.sh
 ```
 
-### 2.Download dataset and models, then put on each path
+### 2. Download the dataset and models, then put them on each path
 [**Models and source results link**](https://drive.google.com/drive/folders/1GXyEdmwkyfPP7oKoSAcFfYTuXzWwG5ch?usp=share_link)
 
 [**More information for model paths**](https://github.com/franktpmvu/NeighborTrack/blob/main/model_download_setting.md)
 
 
 
-# Get result from NeighborTrack with OSTrack
-Work space are in 'NeighborTrack/trackers/ostrack/', please remember change dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py).
+# Get results from NeighborTrack with OSTrack
+Work space is in 'NeighborTrack/trackers/ostrack/', please remember to change the dataset and model's [**root**]( https://github.com/franktpmvu/NeighborTrack/blob/main/trackers/ostrack/lib/test/evaluation/local.py).
 
 More information :[**OSTrack user's guide**](https://github.com/botaoye/OSTrack)
 
@@ -185,12 +185,12 @@ python tracking/video_demo_neighbor.py ostrack vitb_384_mae_ce_32x4_ep300_neighb
 ```
 
 # How to use NeighborTrack in your own SOT tracker:
-## 1.Create dependent functions:
-There are a simple code from Votchallenge NCC tracker, add 3 functions to use our method(`initialize`, `track_neighbor` and `update_center`).
+## 1. Create dependent functions:
+There is a simple code from the votchallenge NCC tracker, add 3 functions to use our method(`initialize`, `track_neighbor`, and `update_center`).
 Please see: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L14  
-After add functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
+After adding functions are seems like: https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/example_ncc_tracker.py#L51
 
-Remenber, the tracker should be have 2 independent model forward/reverse, because all of SOT method will forgot tracking target after initialize, if just 1 forward/backward tracker, it cannot switch forward/backward mission and ensure forward answer don't have any change (even didn't use our method to change output, just use same tracker to track any other object, your forward output will not comeback to original answer, because memory of tracker are changed.) 
+Remember, the tracker should have 2 independent models forward/reverse because all of the SOT methods will forget the tracking target after initialization, if just 1 forward/backward tracker, it cannot switch forward/backward mission and ensure the forward answer doesn't have any change (even didn't use our method to change output, just use the same tracker to track any other object, your forward output will not come back to original answer, because the memory of tracker is changed.) 
 
 ### Other example: ostrack add 3 functions https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/lib/test/evaluation/tracker.py#L328
 
@@ -204,7 +204,7 @@ https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e
 https://github.com/franktpmvu/NeighborTrack/blob/c889695427a2288b42e31cd0f9e0f7e509244729/trackers/ostrack/tracking/ostrack_384_vot_neighbor.py#L70
 
 
-Tracker and invtracker is original ostrack, you can change it by your SOT tracker.
+Tracker and invtracker are original ostrack, you can change them by your SOT tracker.
 
 region = `[x,y,w,h]`,(x y = top left) 
 
