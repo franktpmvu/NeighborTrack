@@ -16,7 +16,7 @@ Old version:
 [**NeighborTrack: Improving Single Object Tracking by Bipartite Matching with Neighbor Tracklets**](https://arxiv.org/abs/2211.06663)
 
 
-This paper was accepted by the 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)
+This paper was accepted by the 9th International Workshop on Computer Vision in Sports (CVsports) 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR)
 
 Single Object Tracking(SOT) post-processing method by using cycle consistency and neighbor(python version)
 
